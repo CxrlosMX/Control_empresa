@@ -28,6 +28,7 @@ public class Empleado implements Metodos {
         this.nombre = nombre;
         this.apellido = apellido;
         this.sueldo = sueldo;
+        this.folio = generarFolio();
     }
 
     //El folio se asignara uno aleatorio
@@ -43,11 +44,61 @@ public class Empleado implements Metodos {
                 n = Metodos.numeroAletatorio(90, 65);
                 s = (char) n;//Convertimos ese numero en 
                 cadena += s;
+            } else {
+                n = Metodos.numeroAletatorio(57, 48);
+                s = (char) n; //Hacemos un casteo para realizar la conversion del valor numero a valor ACSII
+                cadena += s;
             }
 
         }
 
         return cadena;
     }
+
+    //Creamos los metodos get y set
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getFolio() {
+        return folio;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    //Metodo para incrementar el sueldo
+    public void plusSueldo() {
+        
+    }
+    
+    //Metodo para imprimir los atributos de la clase
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + "\nApellido: " + apellido + "\nFolio: " + folio + "\nSueldo: " + sueldo;
+    }
+    
 
 }
