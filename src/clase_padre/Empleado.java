@@ -97,7 +97,7 @@ public class Empleado implements Metodos {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + "\nApellido: " + apellido + "\nFolio: " + folio + "\nSueldo: " + sueldo;
+        return "Nombre: " + nombre + "\nApellido: " + apellido + "\nFolio: " + folio + "\nSueldo: " + sueldo+"$";
     }
     
 

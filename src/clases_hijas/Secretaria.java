@@ -56,4 +56,10 @@ public class Secretaria extends Empleado {
         }
     }
 
+    //Metodo para imprimir los atributos de la Secretaria
+    @Override
+    public String toString() {
+        return super.toString() + "\nArea: " + area + ((this.ingles) ? "SI" : "NO"); //Utilizamos el operador ternario para imprimir si habla lenguaje Ingles o no
+    }
+
 }
