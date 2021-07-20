@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package clases_hijas;
+
+import clase_padre.Empleado;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +15,45 @@ package clases_hijas;
  * @Phone: 953-212-97-27
  * @Email: LuisCRendon131@gmail.com
  * @Date: 19/07/2021
- * 
+ *
  */
-public class Secretaria {
+public class Secretaria extends Empleado {
+
+    private String area;
+    private boolean ingles;
+
+    public Secretaria(String area, boolean ingles, String nombre, String apellido, double sueldo) {
+        super(nombre, apellido, sueldo);
+        this.area = area;
+        plusSueldo();
+        this.ingles = ingles;
+    }
+
+    //Métodos get y set
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public boolean isIngles() {
+        return ingles;
+    }
+
+    public void setIngles(boolean ingles) {
+        this.ingles = ingles;
+    }
+
+    //Metodo que sube el sueldo si la secretaria sabe ingles
+    @Override
+    public void plusSueldo() {
+        if (this.ingles) {
+            double n = super.getSueldo() * 0.30;
+            JOptionPane.showMessageDialog(null, "PLUS aplicado 30%", "Plus aplicado", 1);
+            super.setSueldo(super.getSueldo() * n);
+        }
+    }
 
 }
