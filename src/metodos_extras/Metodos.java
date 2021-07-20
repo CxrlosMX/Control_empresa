@@ -16,4 +16,7 @@ public interface Metodos {
         int n = (int) Math.floor(Math.random() * (max - min + 1)) + min;
         return n;
     }
+    
+    //Crearemos un arreglo de vehiculos de la empresa
+   public static String coches[]={"Tsuru","Jetta","Sentra","Pointer"};
 }
