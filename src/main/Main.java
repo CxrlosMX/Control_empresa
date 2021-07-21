@@ -111,7 +111,7 @@ public class Main {
                                                     Secretaria s = (Secretaria) em;
                                                     String area = JOptionPane.showInputDialog(null, "Introduce la nueva área ", "Introduciendo nueva area", 1);
                                                     s.setArea(area);
-                                                  //  JOptionPane
+                                                    JOptionPane.showMessageDialog(null,"Área cambiada con exito","Área cambiada",1);
                                                     em = s;
                                                     break;
                                                 }
