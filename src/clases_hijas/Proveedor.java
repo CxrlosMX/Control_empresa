@@ -65,6 +65,13 @@ public class Proveedor extends Empleado implements Metodos {
         this.n_clientes = n_clientes;
     }
 
+    //Pedir cambio de Vehiculo
+    public void cambioVehiculo() {
+        int n = Metodos.numeroAletatorio(Metodos.coches.length - 1, 0);
+        JOptionPane.showMessageDialog(null, "Vehiculo Cambiado: \n" + Metodos.coches[n], "Vehiculo Nuevo", 1);
+        setAuto(Metodos.coches[n]);
+    }
+
     //Metodo que sube el sueldo
     @Override
     public void plusSueldo() {
@@ -79,7 +86,5 @@ public class Proveedor extends Empleado implements Metodos {
     public String toString() {
         return super.toString() + "\nAuto: " + auto + "\nNumero de Clientes: " + n_clientes;
     }
-    
-    
 
 }

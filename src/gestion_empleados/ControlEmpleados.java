@@ -41,14 +41,16 @@ public class ControlEmpleados {
             int n_clientes = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce el numero de clientes", "Introduciendo Clientes", 1));
             e = new Proveedor(auto, n_clientes, nombre, apellido, sueldo);
         } else { //Secretaria
-             boolean ingles=false;
-            String area=JOptionPane.showInputDialog(null,"Introduce el area de trabajo","introduciendo Area",1);
-            String vIngles=JOptionPane.showInputDialog(null,"Domina el lenguaje Ingles","Verificando Idioma",1);
-           if(vIngles.equalsIgnoreCase("NO")){
-           ingles=false;
-           }
-           e=new Secretaria(area, ingles, nombre, apellido, sueldo);
-        
+            boolean ingles;
+            String area = JOptionPane.showInputDialog(null, "Introduce el area de trabajo", "introduciendo Area", 1);
+            String vIngles = JOptionPane.showInputDialog(null, "Domina el lenguaje Ingles", "Verificando Idioma", 1);
+            if (vIngles.equalsIgnoreCase("SI")) {
+                ingles = true;
+            } else {
+                ingles = false;
+            }
+            e = new Secretaria(area, ingles, nombre, apellido, sueldo);
+
         }
         return e;
     }
@@ -56,9 +58,23 @@ public class ControlEmpleados {
 //Metodo para registrar un Empleado
     public void addEmpleado(Empleado e, int i) {
         listaEmpleados.add(e);
+        JOptionPane.showMessageDialog(null, "DATOS\n" + e, "Tus Datos", 1);
         //Si i==1 sera para Proveedor y 2 sera para secretaria
-        JOptionPane.showMessageDialog(null, (i == 1) ? "Proveedor agregado correctamente" : "Secretaria agregada correctamente", "Empleado Agregado", 1);
+        JOptionPane.showMessageDialog(null, (i == 1) ? "Proveedor registrado correctamente" : "Secretaria registrada correctamente", "Empleado Agregado", 1);
         contador++;
+    }
+
+    //Método para iniciar sesion
+    public Empleado iniciarSesion(String folio) {
+        boolean encontrado = false;
+        for (int i = 0; i < listaEmpleados.size() && !encontrado; i++) {
+            if (listaEmpleados.get(i).getFolio().equals(folio)) {
+                encontrado = true;
+                return listaEmpleados.get(i);
+            }
+        }
+
+        return null;
     }
 
     //Metodo psa verificar si la lista esta vacia
